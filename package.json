@@ -1,0 +1,19 @@
+{
+  "name" : "imdbLookup",
+  "version" : "0.0.1",
+  "description" : "Right-click on links, or highlight a text on a webpage, and look it up on IMDB.",
+  "repository" : {
+    "type" : "git",
+    "url" : "git://github.com/riencroonenborghs/imdb-lookup.git"
+  },
+  "keywords" : ["imdb", "search"],
+  "readmeFilename" : "README.md",
+  "author" : "Rien Croonenborghs",
+  "license": "MIT",
+  "devDependencies" : {
+    "gulp" :  "3.9.0",
+    "gulp-coffee" : "2.3.1",
+    "gulp-util" : "3.0.7",
+    "del" : "2.2.0"
+  }
+}
