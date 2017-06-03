@@ -1,4 +1,4 @@
-# pivotalAlerts
+# imdbLookup
 
 ## build
 
