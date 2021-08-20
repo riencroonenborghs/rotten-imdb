@@ -7,11 +7,11 @@ export class RottenTomatoesSearcher {
   }
 
   parse () {
-    fetch(this.url)
+    return fetch(this.url)
       .then(response => response.text())
       .then((data) => {
         const parser = new MoviesParser(data);
-        parser.parse();
+        return parser.parse();
       })
   }
 

@@ -1,4 +1,7 @@
 export class Movie {
+  set title (title) { this._title = title; }
+  get title () { return this._title; }
+
   set year (year) { this._year = year; }
   get year () { return this._year; }
 

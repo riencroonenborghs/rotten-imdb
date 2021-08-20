@@ -9,7 +9,10 @@ const option = {
     const selectionText = info.selectionText;
     const parser = new TextParser(selectionText);
     const searcher = new RottenTomatoesSearcher(parser.query);
-    searcher.parse()
+    searcher.parse().then((movies) => {
+      console.log(movies);
+    })
+    
 
     // chrome.tabs.create({
     //   url: searcher.url,
