@@ -2,9 +2,7 @@
 
 ## build
 
-`npm install`
-
-`gulp`
+`yarn build`
 
 ## install
 

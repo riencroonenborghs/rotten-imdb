@@ -1,0 +1,20 @@
+{
+  "manifest_version": 2,
+  "name": "rottenTomatoesLookup",
+  "description": "Look up highlighted text on Rotten Tomatoes.",
+  "version": "2.0.0",
+  "browser_action": {
+    "default_icon": "assets/images/app.png"
+  },
+  "background": {
+    "scripts": ["main.js"]
+  },
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "https://www.rottentomatoes.com/*"
+  ],
+  "icons": {
+    "16": "assets/images/app.png"
+  }
+}
