@@ -1,4 +1,5 @@
-import { MoviesParser } from "./MoviesParser";
+import { SearchResultMoviesParser } from "./SearchResultMoviesParser";
+import { SearchResultTvShowsParser } from "./SearchResultTvShowsParser";
 
 export class Searcher {
   constructor (query) {
@@ -10,8 +11,12 @@ export class Searcher {
     return fetch(this.url)
       .then(response => response.text())
       .then((data) => {
-        const parser = new MoviesParser(data);
-        return parser.parse();
+        const moviesParser = new SearchResultMoviesParser(data);
+        const tvShowsParser = new SearchResultTvShowsParser(data);
+        moviesParser.parse();
+        tvShowsParser.parse();
+
+        return {movies: moviesParser, tvShows: tvShowsParser};
       })
   }
 
