@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "rottenTomatoesLookup",
-  "description": "Look up highlighted text on Rotten Tomatoes.",
+  "name": "Rotten Tomatoes",
+  "description": "Search highlighted text on Rotten Tomatoes & IMDB.",
   "version": "2.0.0",
   "browser_action": {
     "default_icon": "assets/images/app.png"
@@ -11,6 +11,7 @@
   },
   "permissions": [
     "contextMenus",
+    "storage",
     "tabs",
     "https://www.rottentomatoes.com/*"
   ],

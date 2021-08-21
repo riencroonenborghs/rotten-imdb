@@ -10,4 +10,8 @@ export class Movie {
 
   set state (state) { this._state = state; }
   get state () { return this._state; }
+
+  get contextMenuTitle () {
+    return `${this.score ? this.score : "??"} ${this.state.match(/fresh/) ? "+" : "-"} ${this.title} (${this.year})`;
+  }
 }

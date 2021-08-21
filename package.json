@@ -1,7 +1,7 @@
 {
-  "name": "rottenTomatoesLookup",
+  "name": "movieSearch",
   "version": "1.0.0",
-  "description": "Look up highlighted text on Rotten Tomatoes",
+  "description": "Search highlighted text on Rotten Tomatoes & IMDB.",
   "main": "index.js",
   "repository": "git@github.com:riencroonenborghs/imdb-lookup.git",
   "author": "Rien Croonenborghs <rien@croonenborghs.net>",

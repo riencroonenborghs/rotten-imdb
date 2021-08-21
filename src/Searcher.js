@@ -1,6 +1,6 @@
 import { MoviesParser } from "./MoviesParser";
 
-export class RottenTomatoesSearcher {
+export class Searcher {
   constructor (query) {
     this.query = query;
     this.baseUrl = "https://www.rottentomatoes.com/search?search=";

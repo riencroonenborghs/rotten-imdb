@@ -5,7 +5,7 @@ export class TextParser {
   }
 
   get query () {
-    let query = []
+    let query = [];
     this._parts.forEach((part) => {
       if (part.match(this.regExp) === null) {
         query.push(part);

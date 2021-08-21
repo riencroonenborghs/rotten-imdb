@@ -1,25 +1,20 @@
-import { TextParser } from "./TextParser";
-import { RottenTomatoesSearcher } from "./RottenTomatoesSearcher";
+import { MenuCreator } from "./MenuCreator";
+import { Searcher } from "./Searcher";
 
-const option = {
-  id: "rottenTomatoesLookup",
-  contexts: ["selection"],
-  title: "RottenTomatoes Lookup",
-  onclick: function(info) {
-    const selectionText = info.selectionText;
-    const parser = new TextParser(selectionText);
-    const searcher = new RottenTomatoesSearcher(parser.query);
-    searcher.parse().then((movies) => {
-      console.log(movies);
-    })
-    
+const menuCreator = new MenuCreator();
 
-    // chrome.tabs.create({
-    //   url: searcher.url,
-    //   active: false
-    // });
-  }
-};
+menuCreator.init();
 
-chrome.contextMenus.remove(option.id);
-chrome.contextMenus.create(option);
+chrome.storage.onChanged.addListener((list, sync) => {
+  const query = list?.rottenTomatoes?.newValue?.query;
+  if(query === null) { return; }
+
+  const searcher = new Searcher(query);
+  searcher.parse().then((movies) => {
+    menuCreator.afterSearch();    
+
+    movies.forEach((movie) =>
+      menuCreator.forMovie(movie)
+    );
+  });
+});
