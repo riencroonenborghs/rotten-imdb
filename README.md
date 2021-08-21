@@ -8,12 +8,15 @@
 
 Highlight some text in your browser.
 
+1. Right-click and select `Rotten Tomatoes`.
+
 ![highlight](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/step1.png?raw=true)
 
-Right-click and select `Rotten Tomatoes`.
-Right-click again and `Rotten Tomatoes` should now be a drop-down list of search results, split into movies and tv shows results.
+2. Right-click again and `Rotten Tomatoes` should now be a drop-down list of search results, split into movies and tv shows results.
 
 ![highlight](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/step2.png?raw=true)
+
+Next time select `Rotten Tomatoes` > `New Rotten Tomatoes Search`.
 
 ## How to build
 
