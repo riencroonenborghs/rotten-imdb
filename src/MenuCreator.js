@@ -1,7 +1,11 @@
 import { TextParser } from "./parsers/TextParser";
 
 export class MenuCreator {
-  init () {
+  constructor () {
+    this.separatorCount = 0;
+  }
+
+  onInit () {
     chrome.contextMenus.removeAll();
     chrome.contextMenus.create({
       id: `rottenTomatoes`,
@@ -17,12 +21,13 @@ export class MenuCreator {
     });
   }
 
-  separator (id) {
+  addSeparator () {
     chrome.contextMenus.create({
-      id: `rottenTomatesSep${id}`,
+      id: `rottenTomatesSep${this.separatorCount}`,
       type: "separator",
       contexts: ["all"]
     });
+    this.separatorCount += 1;
   }
 
   afterSearch (query) {
@@ -39,7 +44,7 @@ export class MenuCreator {
         chrome.storage.local.set({rottenTomatoes: {query: parser.query}});
       }
     });
-    this.separator(1);
+    this.addSeparator();
   }
 
   forMovie (movie) {

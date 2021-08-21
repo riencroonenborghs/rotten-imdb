@@ -1,9 +1,11 @@
 import { MenuCreator } from "./MenuCreator";
 import { Searcher } from "./Searcher";
 
+const MAX_MOVIES = 5;
+const MAX_TVSHOWS = 5;
 const menuCreator = new MenuCreator();
 
-menuCreator.init();
+menuCreator.onInit();
 
 chrome.storage.onChanged.addListener((list, sync) => {
   const query = list?.rottenTomatoes?.newValue?.query;
@@ -13,12 +15,16 @@ chrome.storage.onChanged.addListener((list, sync) => {
   searcher.parse().then((parsers) => {
     menuCreator.afterSearch(query);
     
-    parsers.movies.movies.forEach((movie) =>
-      menuCreator.forMovie(movie)
-    );
-    menuCreator.separator(2);
-    parsers.tvShows.tvShows.forEach((tvShow) =>
-      menuCreator.forTvShow(tvShow)
-    );
+    parsers.movies.movies.forEach((movie, index) => {
+      if (index < MAX_MOVIES) {
+        menuCreator.forMovie(movie);
+      }
+    });
+    menuCreator.addSeparator();
+    parsers.tvShows.tvShows.forEach((tvShow, index) => {
+      if (index < MAX_TVSHOWS) {
+        menuCreator.forTvShow(tvShow)
+      }
+    });
   });
 });
