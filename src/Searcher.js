@@ -1,5 +1,5 @@
-import { SearchResultMoviesParser } from "./SearchResultMoviesParser";
-import { SearchResultTvShowsParser } from "./SearchResultTvShowsParser";
+import { SearchResultMoviesParser } from "./parsers/SearchResultMoviesParser";
+import { SearchResultTvShowsParser } from "./parsers/SearchResultTvShowsParser";
 
 export class Searcher {
   constructor (query) {

@@ -1,4 +1,4 @@
-import { TextParser } from "./TextParser";
+import { TextParser } from "./parsers/TextParser";
 
 export class MenuCreator {
   init () {
