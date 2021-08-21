@@ -11,7 +11,12 @@ export class Movie {
   set state (state) { this._state = state; }
   get state () { return this._state; }
 
+  set url (url) { this._url = url; }
+  get url () { return this._url; }
+
   get contextMenuTitle () {
-    return `${this.score ? this.score : "??"} ${this.state.match(/fresh/) ? "+" : "-"} ${this.title} (${this.year})`;
+    const score = this.score ? this.score : "??";
+    const icon = this.state.match(/fresh/) ? ":)" : ":(";
+    return `${score} ${icon} ${this.title} (${this.year})`;
   }
 }

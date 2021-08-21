@@ -11,7 +11,7 @@ chrome.storage.onChanged.addListener((list, sync) => {
 
   const searcher = new Searcher(query);
   searcher.parse().then((movies) => {
-    menuCreator.afterSearch();    
+    menuCreator.afterSearch(query);    
 
     movies.forEach((movie) =>
       menuCreator.forMovie(movie)

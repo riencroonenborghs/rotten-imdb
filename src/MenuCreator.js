@@ -6,17 +6,25 @@ export class MenuCreator {
     chrome.contextMenus.create(this.mainOptions);
   }
 
-  afterSearch () {
+  afterSearch (query) {
     chrome.contextMenus.removeAll();
     chrome.contextMenus.create(this.afterSearchOptions);
-    chrome.contextMenus.create({id: "rottenTomatesSep", type: "separator", contexts: ["all"]});
+    chrome.contextMenus.create({id: "rottenTomatesSep1", type: "separator", contexts: ["all"]});
+    chrome.contextMenus.create({id: "rottenTomatesQuery", title: query, contexts: ["all"]});
+    chrome.contextMenus.create({id: "rottenTomatesSep2", type: "separator", contexts: ["all"]});
   }
 
   forMovie (movie) {
     chrome.contextMenus.create({
       id: `rottenTomatoes${movie.title}`,
       title: movie.contextMenuTitle,
-      contexts: ["all"]
+      contexts: ["all"],
+      onclick: function() {
+        chrome.tabs.create({
+          url: movie.url,
+          active: false
+        });
+      }
     });
   }
 

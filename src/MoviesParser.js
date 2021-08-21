@@ -25,19 +25,29 @@ export class MoviesParser {
     const year = this._attribute(data, "releaseyear");
     const score = this._attribute(data, "tomatometerscore");
     const state = this._attribute(data, "tomatometerstate");
+    const url = this._url(data);
     
     return Object.assign(
       new Movie(), {
         title: title,
         year: year,
         score: score,
-        state: state
+        state: state,
+        url: url
       }
     )
   }
 
+  _titleNode (data) {
+    return data.querySelector("a[slot='title']");
+  }
+
   _title (data) {
-    return data.querySelector("a[slot='title']").childNodes[0].nodeValue.split("\n")[1].trim();
+    return this._titleNode(data).childNodes[0].nodeValue.split("\n")[1].trim();
+  }
+
+  _url (data) {
+    return this._attribute(this._titleNode(data), "href");
   }
 
   _attribute (data, attribute) {

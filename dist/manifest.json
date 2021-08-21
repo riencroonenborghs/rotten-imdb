@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Rotten Tomatoes",
-  "description": "Search highlighted text on Rotten Tomatoes & IMDB.",
+  "description": "Search highlighted text on Rotten Tomatoes",
   "version": "2.0.0",
   "browser_action": {
     "default_icon": "assets/images/app.png"
