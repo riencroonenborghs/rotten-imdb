@@ -8,9 +8,12 @@
 
 Highlight some text in your browser.
 
+![highlight](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/step1.png?raw=true)
 
 Right-click and select `Rotten Tomatoes`.
 Right-click again and `Rotten Tomatoes` should now be a drop-down list of search results, split into movies and tv shows results.
+
+![highlight](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/step2.png?raw=true)
 
 ## How to build
 
