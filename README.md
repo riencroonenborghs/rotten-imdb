@@ -9,7 +9,8 @@
 Highlight some text in your browser.
 
 1. Right-click and select `Rotten IMDB` > `Rotten# Rotten IMDB
-    ![search](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/01-search.png?raw=true)
+
+![search](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/01-search.png?raw=true)
 
 2. Wait a few ticks.
    
