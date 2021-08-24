@@ -1,22 +1,26 @@
-# Rotten Tomatoes
+# Rotten IMDB
 
 ## What is it?
 
-`Rotten Tomatoes` is a Chrome extension that allows you to quickly look up highlighted text on [Rotten Tomatoes](https://www.rottentomatoes.com/).
+`Rotten IMDB` is a Chrome extension that allows you to quickly look up highlighted text on [Rotten Tomatoes](https://www.rottentomatoes.com/) or [IMDB](https://www.imdb.com)
 
 ## How to use
 
 Highlight some text in your browser.
 
-1. Right-click and select `Rotten Tomatoes`.
+1. Right-click and select `Rotten IMDB` > `Rotten Tomatoes`. or
+   Right-click and select `Rotten IMDB` > `IMDB`.
 
-![highlight](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/step1.png?raw=true)
+![search](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/01-search.png?raw=true)
 
-2. Right-click again and `Rotten Tomatoes` should now be a drop-down list of search results, split into movies and tv shows results.
+2. Wait a few ticks.
 
-![highlight](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/step2.png?raw=true)
+3. Right-click again and `Rotten IMDB` should now have additional items.
+   - `Rotten Tomatoes` has a list of movies and TV shows for your query, with score and :) :( rotten rating.
+   - `IMDB` has a list of mives and TV shows with the IMDB rating.
 
-Next time select `Rotten Tomatoes` > `New Rotten Tomatoes Search`.
+![Rotten Tomatoes](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/02-rt.png?raw=true)
+![IMDB](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/03-imdb.png?raw=true)
 
 ## How to build
 
