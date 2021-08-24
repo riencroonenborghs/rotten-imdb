@@ -28,7 +28,7 @@ Highlight some text in your browser.
 3. Right-click again and `Rotten IMDB` should now have additional items. You can click on these items to open the appropriate page.
    - `Rotten Tomatoes` has a list of movies and TV shows for your query, with score and :) :( rotten rating.
     ![Rotten Tomatoes](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/02-rt.png?raw=true)
-   - `IMDB` has a list of mives and TV shows with the IMDB rating.
+   - `IMDB` has a list of movies and TV shows with the IMDB rating.
     ![IMDB](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/03-imdb.png?raw=true)
 
 ## How to build
