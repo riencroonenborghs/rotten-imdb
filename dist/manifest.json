@@ -13,7 +13,8 @@
     "contextMenus",
     "storage",
     "tabs",
-    "https://www.rottentomatoes.com/*"
+    "https://www.rottentomatoes.com/*",
+    "https://www.imdb.com/*"
   ],
   "icons": {
     "16": "assets/images/app.png"

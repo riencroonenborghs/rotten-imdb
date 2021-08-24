@@ -1,35 +1,35 @@
-import { SearchResultParser } from "./SearchResultParser";
-import { TvShow } from "../models/TvShow";
+import { Parser } from "parsers/search_results/Parser";
+import { Movie } from "models/Movie";
 
-export class SearchResultTvShowsParser extends SearchResultParser {
+export class MoviesParser extends Parser {
   constructor (body) {
     super(body);
-    this._tvShows = [];
+    this._movies = [];
   }
 
-  get tvShows() { return this._tvShows; }
-  
+  get movies() { return this._movies; }
+
   parse () {    
     this._allNodes.forEach((node) => {
-      this._tvShows.push(
+      this._movies.push(
         this._parseTopNode(node)
       );
     });
   }
 
   get _allNodes () {
-    return this.element.querySelectorAll("search-page-result[slot='tv'] ul[slot='list'] search-page-media-row[skeleton='panel']");
+    return this.element.querySelectorAll("search-page-result[slot='movie'] ul[slot='list'] search-page-media-row[skeleton='panel']");
   }
 
   _parseTopNode (node) {
     const title = this._title(node);
-    const year = this._attribute(node, "startyear");
+    const year = this._attribute(node, "releaseyear");
     const score = this._attribute(node, "tomatometerscore");
     const state = this._attribute(node, "tomatometerstate");
     const url = this._url(node);
     
     return Object.assign(
-      new TvShow(), {
+      new Movie(), {
         title: title,
         year: year,
         score: score,

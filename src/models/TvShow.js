@@ -16,7 +16,10 @@ export class TvShow {
 
   get contextMenuTitle () {
     const score = this.score ? this.score : "??";
-    const icon = this.state.match(/fresh/) ? ":)" : ":(";
+    const icon = "";
+    if (this.state) {
+      icon = this.state.match(/fresh/) ? ":)" : ":(";
+    }
     return `${score} ${icon} ${this.title} (${this.year})`;
   }
 }

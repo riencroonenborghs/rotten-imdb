@@ -1,4 +1,4 @@
-export class SearchResultParser {
+export class Parser {
   constructor(body) {
     this.element = document.createElement('div');
     this.element.insertAdjacentHTML('beforeend', body);

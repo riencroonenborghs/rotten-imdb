@@ -11,6 +11,11 @@
     "webpack-cli": "^4.8.0"
   },
   "scripts": {
-    "build": "npx webpack"
+    "build": "npx webpack",
+    "test": "./node_modules/jest/bin/jest.js"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.15.0",
+    "jest": "^27.0.6"
   }
 }
