@@ -10,7 +10,9 @@ Highlight some text in your browser.
 
 1. Right-click and select `Rotten IMDB` > `Rotten# Rotten IMDB
     ![search](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/01-search.png?raw=true)
+
 2. Wait a few ticks.
+   
 3. Right-click again and `Rotten IMDB` should now have additional items. You can click on these items to open the appropriate page.
    - `Rotten Tomatoes` has a list of movies and TV shows for your query, with score and :) :( rotten rating.
     ![Rotten Tomatoes](https://github.com/riencroonenborghs/rotten-tomatoes/blob/master/screenshots/02-rt.png?raw=true)
@@ -21,7 +23,8 @@ Highlight some text in your browser.
 
 This repo comes pre-built.
 But you can do:
-`yarn install`
+
+`yarn install` and then
 `yarn build`
 
 ## How to install
