@@ -26,7 +26,7 @@ export class TvShowsParser extends Parser {
     
     const link = header.querySelector("a");
     const title = link?.innerText || "asd";
-    const url = this._attribute(link, "href");
+    const url = `https://www.imdb.com/${this._attribute(link, "href")}`;
 
     const year = header.querySelector(".lister-item-year")?.innerText;
 
