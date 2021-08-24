@@ -16,7 +16,7 @@ export class Movie {
 
   get contextMenuTitle () {
     const score = this.score ? this.score : "??";
-    const icon = "";
+    let icon = "";
     if (this.state) {
       icon = this.state.match(/fresh/) ? ":)" : ":(";
     }

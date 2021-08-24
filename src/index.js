@@ -9,7 +9,7 @@ const menuCreator = new MenuCreator();
 
 menuCreator.onInit();
 
-const rottenTomatoesSearch = () => {
+const rottenTomatoesSearch = (query) => {
   const searcher = new RottenTomatoesSearcher(query);
   searcher.search().then((parsers) => {
     menuCreator.afterSearch(query);
@@ -54,9 +54,11 @@ const imdbSearch = (query) => {
 }
 
 chrome.storage.onChanged.addListener((list, sync) => {
-  const query = list?.rottenTomatoes?.newValue?.query;
-  if(!query) { return; }
+  const newValue = list?.rottenIMDB?.newValue;
 
-  // rottenTomatoesSearch(query);
-  imdbSearch(query);
+  if (newValue?.rotten?.query) {
+    rottenTomatoesSearch(newValue?.rotten?.query);
+  } else if (newValue?.imdb?.query) {
+    imdbSearch(newValue?.imdb?.query);
+  }
 });
