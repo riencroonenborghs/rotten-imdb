@@ -1,22 +1,30 @@
 export class TextParser {
   constructor (text) {
     this.text = text;
-    this.regExp = /([0-9]{4})|(S([0-9]*)E([0-9]*))|([0-9]*)p/;
+    // this.regExp = /.*(([0-9]{4})(?!p)|(S([0-9]*)E([0-9]*))|(s([0-9]*)e([0-9]*)))/;
+    this.regExp = /([0-9]{4})(?!p)|(S([0-9]*)E([0-9]*))|(s([0-9]*)e([0-9]*))/;
   }
 
   get query () {
-    let query = [];
-    this._parts.forEach((part) => {
-      if (part.match(this.regExp) === null) {
-        query.push(part);
+    let data = [];
+    let touched = false;
+    this.text.split(/[\.\- ]/).forEach((part, index) => {
+      if (part.match(this.regExp) !== null) { touched = true; }
+
+      if (!touched) { data.push(part); }
+      else if (part.match(this.regExp) !== null) {
+        data.push(part);
       }
     });
-    return query.join(" ");
-  }
+    return data.join(" ");
 
-  get _parts () {
-    const parts = this.text.replace(/\./g, " ").split(/[ \/]/);
-    if (parts[parts.length - 1] === "") { parts.pop(); }
-    return parts;
+    // if (this.text.split(/[\.\- ]/).length === 1) {
+    //   return this.text;
+    // }
+
+    // let text = this.text.replaceAll(/\./g, " ");
+    // let matches = text.match(this.regExp)
+    // if (matches === null) { return ""; }
+    // else { return matches[0]; }
   }
 }

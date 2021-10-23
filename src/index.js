@@ -1,64 +1,42 @@
-import { MenuCreator } from "./MenuCreator";
+import { TextParser } from "./parsers/TextParser";
 import { RottenTomatoesSearcher } from "searchers/RottenTomatoesSearcher";
 import { IMDBMovieSearcher } from "searchers/IMDBMovieSearcher";
 import { IMDBTvShowSearcher } from "searchers/IMDBTvShowSearcher";
 
-const MAX_MOVIES = 5;
-const MAX_TVSHOWS = 5;
-const menuCreator = new MenuCreator();
+chrome.contextMenus.removeAll();
+chrome.contextMenus.create({
+  id: `rottenIMDB-rottentomatoes`,
+  contexts: ["selection"],
+  title: "lookup on Rotten Tomatoes",
+  onclick: function(info) {
+    const selectionText = info.selectionText;
+    const parser = new TextParser(selectionText);
+    const searcher = new RottenTomatoesSearcher(parser.query);
 
-menuCreator.onInit();
-
-const rottenTomatoesSearch = (query) => {
-  const searcher = new RottenTomatoesSearcher(query);
-  searcher.search().then((parsers) => {
-    menuCreator.afterSearch(query);
-    
-    parsers.movies.movies.forEach((movie, index) => {
-      if (index < MAX_MOVIES) {
-        menuCreator.forMovie(movie);
-      }
+    chrome.tabs.create({
+      url: searcher.url,
+      active: false
     });
-    menuCreator.addSeparator();
-    parsers.tvShows.tvShows.forEach((tvShow, index) => {
-      if (index < MAX_TVSHOWS) {
-        menuCreator.forTvShow(tvShow)
-      }
-    });
-  });
-}
+  }
+});
+chrome.contextMenus.create({
+  id: `rottenIMDB-imdb`,
+  contexts: ["selection"],
+  title: "look up on IMDB",
+  onclick: function(info) {
+    const selectionText = info.selectionText;
+    const parser = new TextParser(selectionText);
+    const movieSearcher = new IMDBMovieSearcher(parser.query);
+    const tvShowSearcher = new IMDBTvShowSearcher(parser.query);
 
-const imdbSearch = (query) => {
-  const movieSearcher = new IMDBMovieSearcher(query);
-  const tvShowSearcher = new IMDBTvShowSearcher(query);
-  movieSearcher.search().then((parsers) => {
-    menuCreator.afterSearch(query);
-    
-    parsers.movies.forEach((movie, index) => {
-      if (index < MAX_MOVIES) {
-        menuCreator.forMovie(movie);
-      }
+    chrome.tabs.create({
+      url: movieSearcher.url,
+      active: false
     });
 
-    menuCreator.addSeparator();
-  
-    tvShowSearcher.search().then((parsers) => {
-      parsers.tvShows.forEach((tvShow, index) => {
-        if (index < MAX_TVSHOWS) {
-          menuCreator.forTvShow(tvShow);
-        }
-      });
+    chrome.tabs.create({
+      url: tvShowSearcher.url,
+      active: false
     });
-  });
-  
-}
-
-chrome.storage.onChanged.addListener((list, sync) => {
-  const newValue = list?.rottenIMDB?.newValue;
-
-  if (newValue?.rotten?.query) {
-    rottenTomatoesSearch(newValue?.rotten?.query);
-  } else if (newValue?.imdb?.query) {
-    imdbSearch(newValue?.imdb?.query);
   }
 });
